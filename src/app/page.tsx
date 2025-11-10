@@ -503,7 +503,7 @@ export default function Home() {
                       alt={`${member.name} - ${member.title}`}
                       className="w-full h-full object-cover rounded-xl"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/60 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                       <div>
                         <span className="text-white text-lg md:text-xl font-bold drop-shadow-lg">
                           {member.name}
