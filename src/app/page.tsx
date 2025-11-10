@@ -474,7 +474,7 @@ export default function Home() {
               { 
                 initials: 'HT', 
                 name: 'Himanshu', 
-                title: 'AI Engineer',
+                title: 'Backend Developer',
                 image: 'https://i.postimg.cc/5tjX8mdj/In-Shot-20251110-132703679.jpg'
               },
               { 
