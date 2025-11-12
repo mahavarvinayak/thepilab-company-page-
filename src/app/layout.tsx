@@ -14,16 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Π Lab - Intelligence Engineered",
-  description: "An independent automation and AI collective merging human creativity and artificial intelligence into powerful, intelligent systems.",
-  keywords: ["Π Lab", "AI", "Automation", "Intelligence", "SaaS", "Web Development", "AI Integration"],
+  title: {
+    default: "The Π Lab - Intelligence Engineered",
+    template: "%s | The Π Lab",
+  },
+  description:
+    "An independent automation and AI collective merging human creativity and artificial intelligence into powerful, intelligent systems.",
+  keywords: [
+    "Π Lab",
+    "AI",
+    "Automation",
+    "Intelligence",
+    "SaaS",
+    "Web Development",
+    "AI Integration",
+  ],
   authors: [{ name: "The Π Lab Team" }],
   icons: {
     icon: "/favicon.svg",
   },
+  metadataBase: new URL("https://thepilab.io"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "The Π Lab - Intelligence Engineered",
-    description: "An independent automation and AI collective merging human creativity and artificial intelligence.",
+    description:
+      "An independent automation and AI collective merging human creativity and artificial intelligence.",
     url: "https://thepilab.io",
     siteName: "The Π Lab",
     type: "website",
@@ -39,8 +56,37 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "The Π Lab - Intelligence Engineered",
-    description: "An independent automation and AI collective merging human creativity and artificial intelligence.",
-    images: ["https://i.postimg.cc/KzNVDmD8/Gemini-Generated-Image-pnntc2pnntc2pnnt.png"],
+    description:
+      "An independent automation and AI collective merging human creativity and artificial intelligence.",
+    images: [
+      "https://i.postimg.cc/KzNVDmD8/Gemini-Generated-Image-pnntc2pnntc2pnnt.png",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+// Add additional site-wide JSON-LD WebSite schema
+export const siteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "The Π Lab",
+  url: "https://thepilab.io",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://thepilab.io/?s={search_term_string}",
+    "query-input": "required name=search_term_string",
   },
 };
 
@@ -56,6 +102,32 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        {/* JSON-LD structured data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "The Π Lab",
+              url: "https://thepilab.io",
+              logo: "https://thepilab.io/favicon.svg",
+              sameAs: [
+                "https://github.com/the-pi-lab",
+                "https://www.linkedin.com/company/the-%CF%80-lab/",
+                "mailto:thepilab77@gmail.com"
+              ],
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "",
+                  contactType: "customer support",
+                  email: "thepilab77@gmail.com"
+                }
+              ]
+            })
+          }}
+        />
       </body>
     </html>
   );

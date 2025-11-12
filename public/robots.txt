@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap reference for search engines
+Sitemap: https://thepilab.io/sitemap.xml
